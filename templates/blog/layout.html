@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Django Project {% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+<h1>Blog - {{ name }}</h1>
+
+<div class="container">
+    <div class="col-md-3">
+        <aside class="row">
+            <h3>Categories</h3>
+            <ul>
+                {% for category in categories %}
+                <li>
+                   <a href="{% url 'blog.posts_by_category' category.pk %}"> {{ category.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>
+    </div>
+
+    <div class="col-md-8">
+        {% block content %} {% endblock %}
+    </div>
+</div>
+</body>
+</html>

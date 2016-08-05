@@ -1,0 +1,17 @@
+{% extends "blog/layout.html" %}
+
+{% block title %} Wesley's Blog {% endblock %}
+
+{% block content %}
+<section>
+    {% for post in posts %}
+    <article>
+        <h2>{{ post.name }} ({{ post.category.name }})</h2>
+        <p>
+            {{post.content}}
+        </p>
+    </article>
+    <hr>
+    {% endfor %}
+</section>
+{% endblock %}
